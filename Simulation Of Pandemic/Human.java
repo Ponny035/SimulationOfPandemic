@@ -15,16 +15,20 @@ public class Human extends Actor
     private int worldHeight;
     private int walkingDirection = 0;
     private int countWalk = 0;
+    private int infectionStage;
+    private int infectionPeriod;
+    private double recoveryThreshold = 1;
 
     public Human(int worldWidth, int worldHeight) {
-        this("images/normal.png", 20, 20, worldWidth, worldHeight);
+        this("images/normal.png", 20, 20, worldWidth, worldHeight,0);
     }
     
-    public Human(String skin, int humanWidth, int humanHeight,int worldWidth, int worldHeight) {
+    public Human(String skin, int humanWidth, int humanHeight,int worldWidth, int worldHeight, int infectionStage) {
         this.humanWidth = humanWidth;
         this.humanHeight = humanHeight;
         this.worldWidth = worldWidth;
         this.worldHeight = worldHeight;
+        this.infectionStage = infectionStage;
         image = new GreenfootImage(skin);
         image.scale(humanWidth, humanHeight);
         setImage(image);
@@ -33,6 +37,24 @@ public class Human extends Actor
     public void act()
     {
        travel();
+       changeStage(infectionStage);
+    }
+    
+    private void changeStage(int Stage) {
+        switch(Stage) {
+            case 0:
+                infectionStage = 1;
+                image = new GreenfootImage("images/infected.png");
+                image.scale(humanWidth, humanHeight);
+                setImage(image);
+                break;
+            case 1:
+                infectionStage = 2;
+                image = new GreenfootImage("images/recover.png");
+                image.scale(humanWidth, humanHeight);
+                setImage(image);
+                break;
+        }
     }
     
     private void travel() {
