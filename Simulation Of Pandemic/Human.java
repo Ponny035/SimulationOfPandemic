@@ -2,62 +2,89 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class Human here.
- * 
+ *
  * @author Patipol Saechan, Kritchagamol Sannarong
- * @version 0.1.0
+ * @version 0.2.0
  */
 public class Human extends Actor
 {
     private GreenfootImage image;
-    private int width;
-    private int height;
+    private int humanWidth;
+    private int humanHeight;
     private int worldWidth;
     private int worldHeight;
-    
-    public Human () {
-        this ("images/normal.png", 20, 20);
+    private int walkingDecision = 0;
+    private int countWalk = 0;
+
+    public Human(int worldWidth, int worldHeight) {
+        this("images/normal.png", 20, 20, worldWidth, worldHeight);
     }
-        
-    public Human (String skin, int width, int height) {
-        this.width = width;
-        this.height = height;
-        //this.worldWidth = ((StartWorld)getWorld()).getWidth();
-        //this.worldHeight = ((StartWorld)getWorld()).getHeight();
+    
+    public Human(String skin, int humanWidth, int humanHeight,int worldWidth, int worldHeight) {
+        this.humanWidth = humanWidth;
+        this.humanHeight = humanHeight;
+        this.worldWidth = worldWidth;
+        this.worldHeight = worldHeight;
         image = new GreenfootImage(skin);
-        image.scale(width, height);
+        image.scale(humanWidth, humanHeight);
         setImage(image);
     }
-    
-    public void act() 
+
+    public void act()
     {
-       walk();
+       travel();
     }
     
-    private void walk() {
+    private void travel() {
+        if(countWalk>5) {
+            double threshold = 0.75;
+            double walkingDecision = Math.random();
+            if(walkingDecision>threshold) {
+                walkingDecision = (int)((Math.random()*4));
+            }
+            walk(direction);
+            countWalk = 0;
+        }
+        else {
+            walk(direction);
+            countWalk++;
+        }
+    }
+    
+    private void walk(int direction) {
         int x = getX();
         int y = getY();
-        
-        int direction = (int)((Math.random()*4));
-        System.out.println(direction);
-        switch (direction) {
+        switch(direction) {
             case 0:
-                if((x-(width/2))>0) {
+                if((x-(humanWidth/2))>0) {
                     setLocation(x-2, y);
                 }
-                break;
-            case 1:
-                if((x+(width/2))<1280) {
+                else {
                     setLocation(x+2, y);
                 }
                 break;
+            case 1:
+                if((x+(humanWidth/2))<worldWidth) {
+                    setLocation(x+2, y);
+                }
+                else {
+                    setLocation(x-2, y);
+                }
+                break;
             case 2:
-                if((y-(height/2))>0) {
+                if((y-(humanHeight/2))>0) {
                     setLocation(x, y-2);
+                }
+                else {
+                    setLocation(x, y+2);
                 }
                 break;
             case 3:
-                if((y+(height/2))<720) {
+                if((y+(humanHeight/2))<worldHeight) {
                     setLocation(x, y+2);
+                }
+                else {
+                    setLocation(x, y-2);
                 }
                 break;
         }
