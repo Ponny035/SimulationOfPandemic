@@ -13,7 +13,7 @@ public class Human extends Actor
     private int humanHeight;
     private int worldWidth;
     private int worldHeight;
-    private int walkingDecision = 0;
+    private int walkingDirection = 0;
     private int countWalk = 0;
 
     public Human(int worldWidth, int worldHeight) {
@@ -38,15 +38,15 @@ public class Human extends Actor
     private void travel() {
         if(countWalk>5) {
             double threshold = 0.75;
-            double walkingDecision = Math.random();
-            if(walkingDecision>threshold) {
-                walkingDecision = (int)((Math.random()*4));
+            double decision = Math.random();
+            if(decision>threshold) {
+                walkingDirection = (int)((Math.random()*4));
             }
-            walk(direction);
+            walk(walkingDirection);
             countWalk = 0;
         }
         else {
-            walk(direction);
+            walk(walkingDirection);
             countWalk++;
         }
     }
