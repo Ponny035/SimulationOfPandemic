@@ -61,6 +61,7 @@ public class Human extends Actor
                 }
                 else {
                     setLocation(x+2, y);
+                    walkingDirection = 1;
                 }
                 break;
             case 1:
@@ -69,6 +70,7 @@ public class Human extends Actor
                 }
                 else {
                     setLocation(x-2, y);
+                    walkingDirection = 0;
                 }
                 break;
             case 2:
@@ -77,6 +79,7 @@ public class Human extends Actor
                 }
                 else {
                     setLocation(x, y+2);
+                    walkingDirection = 3;
                 }
                 break;
             case 3:
@@ -85,6 +88,7 @@ public class Human extends Actor
                 }
                 else {
                     setLocation(x, y-2);
+                    walkingDirection = 2;
                 }
                 break;
         }
