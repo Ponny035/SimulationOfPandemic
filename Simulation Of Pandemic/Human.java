@@ -1,10 +1,12 @@
+
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class Human here.
  *
  * @author Patipol Saechan, Kritchagamol Sannarong
- * @version 0.2.0
+ * @version 0.2.1
  */
 public class Human extends Actor
 {
@@ -17,12 +19,13 @@ public class Human extends Actor
     private int countWalk = 0;
     private int infectionStage;
     private int infectionPeriod;
+    private int recoverPeriod = 50;
     private double recoveryThreshold = 1;
 
     public Human(int worldWidth, int worldHeight) {
         this("images/normal.png", 20, 20, worldWidth, worldHeight,0);
     }
-    
+
     public Human(String skin, int humanWidth, int humanHeight,int worldWidth, int worldHeight, int infectionStage) {
         this.humanWidth = humanWidth;
         this.humanHeight = humanHeight;
@@ -34,12 +37,34 @@ public class Human extends Actor
         setImage(image);
     }
 
+    public void gotInfection () {
+        changeStage(infectionStage);
+    }
+
     public void act()
     {
        travel();
-       changeStage(infectionStage);
+       checkRecovery();
     }
-    
+
+    private void checkRecovery() {
+        if(infectionStage == 1) {
+            if(infectionPeriod > recoverPeriod) {
+                double recover = Math.random();
+                if(recover>recoveryThreshold) {
+                    changeStage(infectionStage);
+                }
+                else {
+                    recoveryThreshold = recoveryThreshold - 0.01;
+                }
+                infectionPeriod = 0;
+            }
+            else {
+                infectionPeriod++;
+            }
+        }
+    }
+
     private void changeStage(int Stage) {
         switch(Stage) {
             case 0:
@@ -56,7 +81,7 @@ public class Human extends Actor
                 break;
         }
     }
-    
+
     private void travel() {
         if(countWalk>5) {
             double threshold = 0.75;
@@ -72,7 +97,7 @@ public class Human extends Actor
             countWalk++;
         }
     }
-    
+
     private void walk(int direction) {
         int x = getX();
         int y = getY();
