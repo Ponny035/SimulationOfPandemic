@@ -1,5 +1,4 @@
-
-
+import java.util.List;
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
@@ -37,6 +36,14 @@ public class Human extends Actor
         setImage(image);
     }
 
+    private void checkspread() {
+        List<Human>objects = getObjectsInRange(30, Human.class);
+        for (Human h : objects) 
+        { 
+            h.changeStage(0);
+        }
+    }
+    
     public void gotInfection () {
         changeStage(infectionStage);
     }
@@ -44,24 +51,26 @@ public class Human extends Actor
     public void act()
     {
        travel();
-       checkRecovery();
+       if (infectionStage == 1) {
+           checkspread();
+           checkRecovery();
+       }
     }
 
     private void checkRecovery() {
-        if(infectionStage == 1) {
-            if(infectionPeriod > recoverPeriod) {
-                double recover = Math.random();
-                if(recover>recoveryThreshold) {
-                    changeStage(infectionStage);
-                }
-                else {
-                    recoveryThreshold = recoveryThreshold - 0.01;
-                }
-                infectionPeriod = 0;
+        if(infectionPeriod > recoverPeriod) {
+            double recover = Math.random();
+            if(recover>recoveryThreshold) {
+                changeStage(infectionStage);
             }
             else {
-                infectionPeriod++;
+                recoveryThreshold = recoveryThreshold * 0.99;
             }
+            recoverPeriod = (int)(recoverPeriod * 0.9);
+            infectionPeriod = 0;
+        }
+        else {
+            infectionPeriod++;
         }
     }
 
