@@ -18,29 +18,48 @@ public class Human extends Actor
     private int countWalk = 0;
     private int infectionStage;
     private int infectionPeriod;
-    private int recoverPeriod = 50;
+    private int recoverPeriod;
+    private double immume;
     private double recoveryThreshold = 1;
 
     public Human(int worldWidth, int worldHeight) {
-        this("images/normal.png", 20, 20, worldWidth, worldHeight,0);
+        this("images/normal.png", 20, 20, worldWidth, worldHeight,0, 50, 0.75);
+    }
+    
+    public Human(int worldWidth, int worldHeight, int infectionStage) {
+        this("images/normal.png", 20, 20, worldWidth, worldHeight,infectionStage, 50, 0.75);
     }
 
-    public Human(String skin, int humanWidth, int humanHeight,int worldWidth, int worldHeight, int infectionStage) {
+    public Human(String skin, int humanWidth, int humanHeight,int worldWidth, int worldHeight, int infectionStage, int recoverPeriod, double immume) {
         this.humanWidth = humanWidth;
         this.humanHeight = humanHeight;
         this.worldWidth = worldWidth;
         this.worldHeight = worldHeight;
         this.infectionStage = infectionStage;
+        this.recoverPeriod = recoverPeriod;
+        this.immume = immume;
         image = new GreenfootImage(skin);
         image.scale(humanWidth, humanHeight);
         setImage(image);
     }
-
+    
+    public int getInfectionStage() {
+        return infectionStage;
+    }
+    
     private void checkspread() {
         List<Human>objects = getObjectsInRange(30, Human.class);
         for (Human h : objects) 
         { 
-            h.changeStage(0);
+            double p = Math.random();
+            if (p>immume) {
+                if(getInfectionStage()==2){
+                    recoveryThreshold = 1;
+                    recoverPeriod = 50;
+                    infectionPeriod = 0;
+                }
+                h.changeStage(0);
+            }
         }
     }
     
@@ -62,6 +81,7 @@ public class Human extends Actor
             double recover = Math.random();
             if(recover>recoveryThreshold) {
                 changeStage(infectionStage);
+                immume = 0.99;
             }
             else {
                 recoveryThreshold = recoveryThreshold * 0.99;

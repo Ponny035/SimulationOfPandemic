@@ -15,16 +15,14 @@ public class StartWorld extends World
     public StartWorld(int width, int height)
     {
         super(width, height, 1);
-        addObject( new Human(this.getWidth(),this.getHeight()), 650, 360);
-        addObject( new Human(this.getWidth(),this.getHeight()), 620, 360);
-        addObject( new Human(this.getWidth(),this.getHeight()), 550, 360);
-        addObject( new Human(this.getWidth(),this.getHeight()), 500, 360);
-        addObject( new Human(this.getWidth(),this.getHeight()), 450, 360);
-        addObject( new Human(this.getWidth(),this.getHeight()), 400, 360);
-        addObject( new Human(this.getWidth(),this.getHeight()), 350, 360);
-        addObject( new Human(this.getWidth(),this.getHeight()), 300, 360);
-        addObject( new Human(this.getWidth(),this.getHeight()), 250, 360);
-        addObject( new Human(this.getWidth(),this.getHeight()), 200, 360);
+        int y = (int)(Math.random()*700+10);
+        int x = (int)(Math.random()*1200+10);
+        for(int i=0;i<1499;i++) {
+            addObject( new Human(this.getWidth(),this.getHeight()), x, y);
+            y = (int)(Math.random()*700+10);
+            x = (int)(Math.random()*1200+10);
+        }
+        addObject( new Human(this.getWidth(),this.getHeight(),1), x, y);
         Greenfoot.start();
     }
 }
