@@ -40,7 +40,7 @@ public class Human extends Actor
             double threshold = 0.75;
             double decision = Math.random();
             if(decision>threshold) {
-                walkingDirection = (int)((Math.random()*4));
+                walkingDirection = (int)((Math.random()*8));
             }
             walk(walkingDirection);
             countWalk = 0;
@@ -89,6 +89,42 @@ public class Human extends Actor
                 else {
                     setLocation(x, y-2);
                     walkingDirection = 2;
+                }
+                break;
+            case 4:
+                if((x-(humanWidth/2))>0 && (y-(humanHeight/2))>0) {
+                    setLocation(x-2, y-2);
+                }
+                else {
+                    setLocation(x+2, y-2);
+                    walkingDirection = 1;
+                }
+                break;
+            case 5:
+                if((x+(humanWidth/2))<worldWidth && (y+(humanHeight/2))<worldHeight) {
+                    setLocation(x+2, y+2);
+                }
+                else {
+                    setLocation(x-2, y-2);
+                    walkingDirection = 0;
+                }
+                break;
+            case 6:
+                if((x+(humanWidth/2))<worldWidth && (y-(humanHeight/2))>0) {
+                    setLocation(x+2, y-2);
+                }
+                else {
+                    setLocation(x-2, y+2);
+                    walkingDirection = 1;
+                }
+                break;
+            case 7:
+                if((x+(humanWidth/2))<worldWidth && (y-(humanHeight/2))>0) {
+                    setLocation(x-2, y+2);
+                }
+                else {
+                    setLocation(x+2, y-2);
+                    walkingDirection = 0;
                 }
                 break;
         }
