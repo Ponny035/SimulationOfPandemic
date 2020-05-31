@@ -13,7 +13,7 @@ public class Human extends Actor
     private int humanHeight;
     private int worldWidth;
     private int worldHeight;
-    private int walkingDirection = 0;
+    private double walkingDirection = 0;
     private int countWalk = 0;
 
     public Human(int worldWidth, int worldHeight) {
@@ -40,7 +40,7 @@ public class Human extends Actor
             double threshold = 0.75;
             double decision = Math.random();
             if(decision>threshold) {
-                walkingDirection = (int)((Math.random()*8));
+                walkingDirection = (Math.random()*2*Math.PI);
             }
             walk(walkingDirection);
             countWalk = 0;
@@ -51,82 +51,9 @@ public class Human extends Actor
         }
     }
     
-    private void walk(int direction) {
+    private void walk(double direction) {
         int x = getX();
         int y = getY();
-        switch(direction) {
-            case 0:
-                if((x-(humanWidth/2))>0) {
-                    setLocation(x-2, y);
-                }
-                else {
-                    setLocation(x+2, y);
-                    walkingDirection = 1;
-                }
-                break;
-            case 1:
-                if((x+(humanWidth/2))<worldWidth) {
-                    setLocation(x+2, y);
-                }
-                else {
-                    setLocation(x-2, y);
-                    walkingDirection = 0;
-                }
-                break;
-            case 2:
-                if((y-(humanHeight/2))>0) {
-                    setLocation(x, y-2);
-                }
-                else {
-                    setLocation(x, y+2);
-                    walkingDirection = 3;
-                }
-                break;
-            case 3:
-                if((y+(humanHeight/2))<worldHeight) {
-                    setLocation(x, y+2);
-                }
-                else {
-                    setLocation(x, y-2);
-                    walkingDirection = 2;
-                }
-                break;
-            case 4:
-                if((x-(humanWidth/2))>0 && (y-(humanHeight/2))>0) {
-                    setLocation(x-2, y-2);
-                }
-                else {
-                    setLocation(x+2, y-2);
-                    walkingDirection = 1;
-                }
-                break;
-            case 5:
-                if((x+(humanWidth/2))<worldWidth && (y+(humanHeight/2))<worldHeight) {
-                    setLocation(x+2, y+2);
-                }
-                else {
-                    setLocation(x-2, y-2);
-                    walkingDirection = 0;
-                }
-                break;
-            case 6:
-                if((x+(humanWidth/2))<worldWidth && (y-(humanHeight/2))>0) {
-                    setLocation(x+2, y-2);
-                }
-                else {
-                    setLocation(x-2, y+2);
-                    walkingDirection = 1;
-                }
-                break;
-            case 7:
-                if((x+(humanWidth/2))<worldWidth && (y-(humanHeight/2))>0) {
-                    setLocation(x-2, y+2);
-                }
-                else {
-                    setLocation(x+2, y-2);
-                    walkingDirection = 0;
-                }
-                break;
-        }
+        setLocation(x+(int)(2*Math.cos(direction)), y+(int)(2*Math.sin(direction)));
     }
 }
