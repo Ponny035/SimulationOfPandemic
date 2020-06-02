@@ -43,6 +43,9 @@ public class Human extends Actor
         image = new GreenfootImage(skin);
         image.scale(humanWidth, humanHeight);
         setImage(image);
+        if(infectionStage==1) {
+            changeStage(0);
+        }
     }
     
     public int getInfectionStage() {
