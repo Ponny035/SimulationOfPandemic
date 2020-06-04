@@ -135,6 +135,19 @@ public class Human extends Actor
     private void walk(double direction) {
         int x = getX();
         int y = getY();
-        setLocation(x+(int)(speed*Math.cos(direction)), y+(int)(speed*Math.sin(direction)));
+        int xDiff = (int)(speed*Math.cos(direction));
+        int yDiff = (int)(speed*Math.sin(direction));
+        boolean checkBoundaries = false;
+        if((x-(humanWidth/2))+xDiff<0 || (x+(humanWidth/2))+xDiff>worldWidth) {
+            setLocation(x-xDiff, y+yDiff);
+            checkBoundaries = true;
+        }
+        if((y-(humanHeight/2))+yDiff<0 || (y+(humanHeight/2))+yDiff>worldHeight) {
+            setLocation(x+xDiff, y-yDiff);
+            checkBoundaries = true;
+        }
+        if (!checkBoundaries) {
+            setLocation(x+(int)(speed*Math.cos(direction)), y+(int)(speed*Math.sin(direction)));
+        }
     }
 }
