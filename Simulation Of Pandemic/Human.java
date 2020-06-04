@@ -14,23 +14,24 @@ public class Human extends Actor
     private int humanHeight;
     private int worldWidth;
     private int worldHeight;
-    private double walkingDirection = 0;
+    private int speed;
     private int countWalk = 0;
     private int infectionStage;
     private int infectionPeriod;
     private int recoverPeriod;
     private double immume;
     private double recoveryThreshold = 1;
+    private double walkingDirection = 0;
 
     public Human(int worldWidth, int worldHeight) {
-        this("images/normal.png", 20, 20, worldWidth, worldHeight,0, 50, 0.75);
+        this("images/normal.png", 20, 20, worldWidth, worldHeight,0, 50, 0.75,5);
     }
     
     public Human(int worldWidth, int worldHeight, int infectionStage) {
-        this("images/normal.png", 20, 20, worldWidth, worldHeight,infectionStage, 50, 0.75);
+        this("images/normal.png", 20, 20, worldWidth, worldHeight,infectionStage, 50, 0.75,5);
     }
 
-    public Human(String skin, int humanWidth, int humanHeight,int worldWidth, int worldHeight, int infectionStage, int recoverPeriod, double immume) {
+    public Human(String skin, int humanWidth, int humanHeight,int worldWidth, int worldHeight, int infectionStage, int recoverPeriod, double immume, int speed) {
         this.humanWidth = humanWidth;
         this.humanHeight = humanHeight;
         this.worldWidth = worldWidth;
@@ -38,9 +39,13 @@ public class Human extends Actor
         this.infectionStage = infectionStage;
         this.recoverPeriod = recoverPeriod;
         this.immume = immume;
+        this.speed = speed;
         image = new GreenfootImage(skin);
         image.scale(humanWidth, humanHeight);
         setImage(image);
+        if(infectionStage==1) {
+            changeStage(0);
+        }
     }
     
     public int getInfectionStage() {
@@ -130,8 +135,8 @@ public class Human extends Actor
     private void walk(double direction) {
         int x = getX();
         int y = getY();
-        int xDiff = (int)(2*Math.cos(direction));
-        int yDiff = (int)(2*Math.sin(direction));
+        int xDiff = (int)(speed*Math.cos(direction));
+        int yDiff = (int)(speed*Math.sin(direction));
         boolean checkBoundaries = false;
         if((x-(humanWidth/2))+xDiff<0 || (x+(humanWidth/2))+xDiff>worldWidth) {
             setLocation(x-xDiff, y+yDiff);
@@ -142,7 +147,7 @@ public class Human extends Actor
             checkBoundaries = true;
         }
         if (!checkBoundaries) {
-            setLocation(x+(int)(2*Math.cos(direction)), y+(int)(2*Math.sin(direction)));
+            setLocation(x+(int)(speed*Math.cos(direction)), y+(int)(speed*Math.sin(direction)));
         }
     }
 }
