@@ -10,7 +10,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class ImmunityInformation extends Information
 {
     public ImmunityInformation () {
-        super("Avg. Immunity", ""+SimulationWorld.immune);
+        super("Avg. Immunity", ""+SimulationWorld.immune,Color.CYAN);
     }
     
     public void act() 
