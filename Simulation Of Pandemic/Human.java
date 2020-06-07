@@ -143,15 +143,13 @@ public class Human extends Actor
         int yDiff = (int)(speed*Math.sin(direction));
         boolean checkBoundaries = false;
         if((x-(humanWidth/2))+xDiff<0 || (x+(humanWidth/2))+xDiff>worldWidth) {
-            setLocation(x-xDiff, y+yDiff);
-            checkBoundaries = true;
+            direction = direction+Math.PI;
+            walkingDirection = walkingDirection + Math.PI;
         }
         if((y-(humanHeight/2))+yDiff<0 || (y+(humanHeight/2))+yDiff>worldHeight) {
-            setLocation(x+xDiff, y-yDiff);
-            checkBoundaries = true;
+            direction = direction+Math.PI;
+            walkingDirection = walkingDirection + Math.PI;
         }
-        if (!checkBoundaries) {
-            setLocation(x+(int)(speed*Math.cos(direction)), y+(int)(speed*Math.sin(direction)));
-        }
+        setLocation(x+(int)(speed*Math.cos(direction)), y+(int)(speed*Math.sin(direction)));
     }
 }
