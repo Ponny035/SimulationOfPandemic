@@ -27,8 +27,8 @@ public class Human extends Actor
         this("images/normal.png", 20, 20, worldWidth, worldHeight,0, 50, 0.75,2);
     }
     
-    public Human(int worldWidth, int worldHeight, int infectionStage) {
-        this("images/normal.png", 20, 20, worldWidth, worldHeight,infectionStage, 50, 0.75,2);
+    public Human(int worldWidth, int worldHeight, int recoverPeriod, double immune, int speed) {
+        this("images/normal.png", 20, 20, worldWidth, worldHeight,0,recoverPeriod, immune,speed);
     }
     
     public Human(int worldWidth, int worldHeight, int infectionStage, int recoverPeriod, double immune, int speed) {
@@ -55,7 +55,7 @@ public class Human extends Actor
     public int getInfectionStage() {
         return infectionStage;
     }
-    
+
     private void checkspread() {
         List<Human>objects = getObjectsInRange(30, Human.class);
         for (Human h : objects) 
