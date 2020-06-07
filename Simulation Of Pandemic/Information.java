@@ -12,7 +12,7 @@ public class Information extends Actor
     private String data;
     public void act() 
     {
-        printHigh();
+        printData();
     }
     
     public Information (String informationName, String data) {
@@ -20,7 +20,12 @@ public class Information extends Actor
         this.data = data;
     }
     
-    private void printHigh() {
-        setImage(new GreenfootImage("Human "+ informationName +" : "+ data, 24, Color.WHITE, new Color(0,0,0,0)));
-    }    
+    private void printData() {
+        setImage(new GreenfootImage("Human "+ informationName +" : "+ data, 24, Color.WHITE, new Color(0,0,0,127)));
+    }
+    
+    public void updateData(String data) {
+        this.data = data;
+        printData();
+    }
 }

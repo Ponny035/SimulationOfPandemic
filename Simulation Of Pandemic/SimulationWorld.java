@@ -30,9 +30,17 @@ public class SimulationWorld extends World
             x = (int)(Math.random()*1250+10);
         }
         addObject( new Human(this.getWidth(),this.getHeight(),1,recoverPeriod, immune,speed), x, y);
-        addObject( new ImmunityInformation(), 1140, 25);
+        addObject( new ImmunityInformation(), 1110, 25);
         addObject( new SpeedInformation(), 1140, 45);
         addObject( new RecoverPeriodInformation(), 1140, 65);
         Greenfoot.start();
+    }
+    
+    public void setImmune (double immune) {
+        this.immune = immune;
+    }
+    
+    public double getImmune () {
+        return immune;
     }
 }
