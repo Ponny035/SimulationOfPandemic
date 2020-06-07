@@ -19,26 +19,30 @@ public class Human extends Actor
     private int infectionStage;
     private int infectionPeriod;
     private int recoverPeriod;
-    private double immume;
+    private double immune;
     private double recoveryThreshold = 1;
     private double walkingDirection = 0;
-
+    
     public Human(int worldWidth, int worldHeight) {
-        this("images/normal.png", 20, 20, worldWidth, worldHeight,0, 50, 0.75,5);
+        this("images/normal.png", 20, 20, worldWidth, worldHeight,0, 50, 0.75,2);
     }
     
     public Human(int worldWidth, int worldHeight, int infectionStage) {
-        this("images/normal.png", 20, 20, worldWidth, worldHeight,infectionStage, 50, 0.75,5);
+        this("images/normal.png", 20, 20, worldWidth, worldHeight,infectionStage, 50, 0.75,2);
+    }
+    
+    public Human(int worldWidth, int worldHeight, int infectionStage, int recoverPeriod, double immune, int speed) {
+        this("images/normal.png", 20, 20, worldWidth, worldHeight,infectionStage, recoverPeriod, immune,speed);
     }
 
-    public Human(String skin, int humanWidth, int humanHeight,int worldWidth, int worldHeight, int infectionStage, int recoverPeriod, double immume, int speed) {
+    public Human(String skin, int humanWidth, int humanHeight,int worldWidth, int worldHeight, int infectionStage, int recoverPeriod, double immune, int speed) {
         this.humanWidth = humanWidth;
         this.humanHeight = humanHeight;
         this.worldWidth = worldWidth;
         this.worldHeight = worldHeight;
         this.infectionStage = infectionStage;
         this.recoverPeriod = recoverPeriod;
-        this.immume = immume;
+        this.immune = immune;
         this.speed = speed;
         image = new GreenfootImage(skin);
         image.scale(humanWidth, humanHeight);
@@ -57,7 +61,7 @@ public class Human extends Actor
         for (Human h : objects) 
         { 
             double p = Math.random();
-            if (p>immume) {
+            if (p>immune) {
                 if(getInfectionStage()==2){
                     recoveryThreshold = 1;
                     recoverPeriod = 50;
@@ -86,7 +90,7 @@ public class Human extends Actor
             double recover = Math.random();
             if(recover>recoveryThreshold) {
                 changeStage(infectionStage);
-                immume = 0.99;
+                immune = 0.999;
             }
             else {
                 recoveryThreshold = recoveryThreshold * 0.99;
