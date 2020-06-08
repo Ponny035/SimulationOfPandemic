@@ -56,20 +56,36 @@ public class Human extends Actor
         return infectionStage;
     }
 
-    private void checkspread() {
+    private void spread() {
         List<Human>objects = getObjectsInRange(30, Human.class);
         for (Human h : objects) 
         { 
             double p = Math.random();
-            if (p>immune) {
-                if(getInfectionStage()==2){
-                    recoveryThreshold = 1;
-                    recoverPeriod = 50;
-                    infectionPeriod = 0;
+            if (h.getInfectionStage()!=1 && p>h.getImmune()) {
+                if(h.getInfectionStage()==2){
+                    h.setRecoveryThreshold(1);
+                    h.setRecoverPeriod(50);
+                    h.setInfectionPeriod(0);
                 }
                 h.changeStage(0);
             }
         }
+    }
+    
+    public double getImmune () {
+        return immune;
+    }
+    
+    public void setRecoveryThreshold (double recoveryThreshold) {
+        this.recoveryThreshold = recoveryThreshold;
+    }
+    
+    public void setRecoverPeriod (int recoverPeriod) {
+        this.recoverPeriod = recoverPeriod;
+    }
+    
+    public void setInfectionPeriod (int infectionPeriod) {
+        this.infectionPeriod = infectionPeriod;
     }
     
     public void gotInfection () {
@@ -80,7 +96,7 @@ public class Human extends Actor
     {
        travel();
        if (infectionStage == 1) {
-           checkspread();
+           spread();
            checkRecovery();
        }
     }
@@ -90,7 +106,7 @@ public class Human extends Actor
             double recover = Math.random();
             if(recover>recoveryThreshold) {
                 changeStage(infectionStage);
-                immune = 0.999;
+                immune = immune*1.1;
             }
             else {
                 recoveryThreshold = recoveryThreshold * 0.99;
@@ -143,15 +159,13 @@ public class Human extends Actor
         int yDiff = (int)(speed*Math.sin(direction));
         boolean checkBoundaries = false;
         if((x-(humanWidth/2))+xDiff<0 || (x+(humanWidth/2))+xDiff>worldWidth) {
-            setLocation(x-xDiff, y+yDiff);
-            checkBoundaries = true;
+            direction = direction+Math.PI;
+            walkingDirection = walkingDirection + Math.PI;
         }
         if((y-(humanHeight/2))+yDiff<0 || (y+(humanHeight/2))+yDiff>worldHeight) {
-            setLocation(x+xDiff, y-yDiff);
-            checkBoundaries = true;
+            direction = direction+Math.PI;
+            walkingDirection = walkingDirection + Math.PI;
         }
-        if (!checkBoundaries) {
-            setLocation(x+(int)(speed*Math.cos(direction)), y+(int)(speed*Math.sin(direction)));
-        }
+        setLocation(x+(int)(speed*Math.cos(direction)), y+(int)(speed*Math.sin(direction)));
     }
 }
