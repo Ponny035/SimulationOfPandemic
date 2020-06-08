@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Back_Select extends Button
+public class BackSelect extends Button
 {
     /**
      * Act - do whatever the Back_Select wants to do. This method is called whenever
@@ -27,7 +27,7 @@ public class Back_Select extends Button
         }
     }
     
-    public Back_Select() {
+    public BackSelect() {
         super("images/botton_backtohomepage.png");
     
     }   

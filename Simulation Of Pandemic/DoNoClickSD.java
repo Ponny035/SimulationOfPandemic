@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Do_Noclick_SD extends Button
+public class DoNoClickSD extends Button
 {
     /**
      * Act - do whatever the Do_Noclick_SD wants to do. This method is called whenever
@@ -27,7 +27,7 @@ public class Do_Noclick_SD extends Button
         }
     }
     
-    public Do_Noclick_SD() {
+    public DoNoClickSD() {
         super("images/button_dosocial_noclick.png");
     
     }  

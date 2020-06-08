@@ -1,18 +1,18 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class No_Noclick_SD here.
+ * Write a description of class Notice here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class No_Noclick_SD extends Button
+public class HowTo extends Button
 {
     /**
-     * Act - do whatever the No_Noclick_SD wants to do. This method is called whenever
+     * Act - do whatever the Notice wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-     public void act() 
+    public void act() 
     {
         super.checkClick();
         active(isActive);
@@ -27,8 +27,8 @@ public class No_Noclick_SD extends Button
         }
     }
     
-    public No_Noclick_SD() {
-        super("images/button_nosocial_noclick.png");
+    public HowTo() {
+        super("images/button_notice.png");
     
-    }    
+    }  
 }
