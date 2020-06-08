@@ -10,7 +10,7 @@ public class Story extends Button
 {
 
     public Story() { 
-        super("images/button_story.png", 60,60);
+        super("images/Button/button_story.png");
     }
     
     public void act() 
