@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class up2 here.
+ * Write a description of class up1 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class up2 extends Button
+public class PoppolationUp extends Button
 {
     /**
-     * Act - do whatever the up2 wants to do. This method is called whenever
+     * Act - do whatever the up1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
@@ -27,8 +27,8 @@ public class up2 extends Button
         }
     }
     
-    public up2() {
+    public PoppolationUp() {
         super("images/botton_up.png");
     
-    }   
+    }  
 }

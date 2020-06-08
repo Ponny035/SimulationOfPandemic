@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class down1 extends Button
+public class PoppolationDown extends Button
 {
     /**
      * Act - do whatever the down1 wants to do. This method is called whenever
@@ -27,7 +27,7 @@ public class down1 extends Button
         }
     }
     
-    public down1() {
+    public PoppolationDown() {
         super("images/botton_down.png");
     
     }      

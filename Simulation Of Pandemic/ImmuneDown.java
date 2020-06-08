@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class down2 extends Button
+public class ImmuneDown extends Button
 {
     /**
      * Act - do whatever the down2 wants to do. This method is called whenever
@@ -27,7 +27,7 @@ public class down2 extends Button
         }
     }
     
-    public down2() {
+    public ImmuneDown() {
         super("images/botton_down.png");
     
     }    

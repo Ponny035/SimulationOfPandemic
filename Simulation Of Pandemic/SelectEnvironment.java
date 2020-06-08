@@ -24,10 +24,10 @@ public class SelectEnvironment extends World
         addObject(new HowTo(), 1200, 70);
         addObject(new DoSocialDistancing(),444,497);
         addObject(new DoNotSocialDistancing(),867,497);
-        addObject(new down1(),580,265);
-        addObject(new down2(),1100,265);
-        addObject(new up1(),582,240);
-        addObject(new up2(),1100,240);
+        addObject(new PoppolationUp(),582,240);
+        addObject(new PoppolationDown(),580,265);
+        addObject(new ImmuneUp(),1100,240);
+        addObject(new ImmuneDown(),1100,265);
         Greenfoot.start();
     }
     
