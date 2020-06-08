@@ -14,7 +14,7 @@ public class SimulationWorld extends World
     private int healthy = 0;
     private int infected = 1;
     private int recover = 0;
-    private int totalTnfected = 0;
+    private int totalTnfected = 1;
     
     public SimulationWorld() {
         this(1280,720, 50,0.75,2,500);

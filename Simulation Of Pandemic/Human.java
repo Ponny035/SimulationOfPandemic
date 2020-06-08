@@ -24,15 +24,15 @@ public class Human extends Actor
     private double walkingDirection = 0;
     
     public Human(int worldWidth, int worldHeight) {
-        this("images/normal.png", 20, 20, worldWidth, worldHeight,0, 50, 0.75,2);
+        this("images/Skin/normal.png", 20, 20, worldWidth, worldHeight,0, 50, 0.75,2);
     }
     
     public Human(int worldWidth, int worldHeight, int recoverPeriod, double immune, int speed) {
-        this("images/normal.png", 20, 20, worldWidth, worldHeight,0,recoverPeriod, immune,speed);
+        this("images/Skin/normal.png", 20, 20, worldWidth, worldHeight,0,recoverPeriod, immune,speed);
     }
     
     public Human(int worldWidth, int worldHeight, int infectionStage, int recoverPeriod, double immune, int speed) {
-        this("images/normal.png", 20, 20, worldWidth, worldHeight,infectionStage, recoverPeriod, immune,speed);
+        this("images/Skin/normal.png", 20, 20, worldWidth, worldHeight,infectionStage, recoverPeriod, immune,speed);
     }
 
     public Human(String skin, int humanWidth, int humanHeight,int worldWidth, int worldHeight, int infectionStage, int recoverPeriod, double immune, int speed) {
@@ -124,13 +124,13 @@ public class Human extends Actor
         switch(Stage) {
             case 0:
                 infectionStage = 1;
-                image = new GreenfootImage("images/infected.png");
+                image = new GreenfootImage("images/Skin/infected.png");
                 image.scale(humanWidth, humanHeight);
                 setImage(image);
                 break;
             case 1:
                 infectionStage = 2;
-                image = new GreenfootImage("images/recover.png");
+                image = new GreenfootImage("images/Skin/recover.png");
                 image.scale(humanWidth, humanHeight);
                 setImage(image);
                 break;

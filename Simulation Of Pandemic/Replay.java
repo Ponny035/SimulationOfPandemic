@@ -27,8 +27,7 @@ public class Replay extends Button
             World world = getWorld();
             //Greenfoot.playSound("Selection_Sound_7.wav");
             //world.soundTrack.stop();
-            Greenfoot.setWorld(new HomeScreen());
-            //Greenfoot.setWorld(new SelectEnvironment());
+            Greenfoot.setWorld(new SelectEnvironment());
             getWorld().removeObject(this);
         }
     }

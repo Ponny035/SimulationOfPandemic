@@ -1,21 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Start here.
+ * Write a description of class Notice here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Start extends Button
+public class HowTo extends Button
 {
     /**
-     * Act - do whatever the Start wants to do. This method is called whenever
+     * Act - do whatever the Notice wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
         super.checkClick();
-        super.checkKeys("enter");
         active(isActive);
     } 
     
@@ -23,13 +22,14 @@ public class Start extends Button
         if(active) {
             //Greenfoot.playSound("");
             //((Home)getWorld()).soundTrack.stop();
-            Greenfoot.setWorld(new SelectEnvironment());
+            //Greenfoot.setWorld(new HomeScreen());
+            Greenfoot.setWorld(new HowToPlay());
             getWorld().removeObject(this);
         }
     }
     
-    public Start() {
-        super("images/Button/Button_Start.png");
+    public HowTo() {
+        super("images/Button/button_notice.png");
     
-    }
+    }  
 }
