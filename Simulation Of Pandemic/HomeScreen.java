@@ -17,7 +17,8 @@ public class HomeScreen extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1280, 720,1); 
-        addObject( new Start(), 640, 360);
+        addObject( new Start(), 640, 400);
+        addObject( new Story(), 1200, 70);
         Greenfoot.start();
     }
 }
