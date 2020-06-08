@@ -16,12 +16,12 @@ public class Start extends Button
     {
         super.checkClick();
         super.checkKeys("enter");
-        active(isActive);
+        //active(isActive);
     } 
     
-    public active () {
+    /*public active () {
         
-    }
+    }*/
     
     public Start() {
         super("images/Button_Start.png",150,150);
