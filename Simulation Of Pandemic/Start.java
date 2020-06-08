@@ -19,8 +19,13 @@ public class Start extends Button
         //active(isActive);
     } 
     
-    /*public active () {
-        
+    /*public active (boolean active) {
+        if(active) {
+            //Greenfoot.playSound("");
+            ((Home)getWorld()).soundTrack.stop();
+            Greenfoot.setWorld(new GameSetting());
+            getWorld().removeObject(this);
+        }
     }*/
     
     public Start() {
