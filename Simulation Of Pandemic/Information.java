@@ -10,17 +10,29 @@ public class Information extends Actor
 {
     private String informationName;
     private String data;
+    private Color color;
+    
     public void act() 
     {
-        printHigh();
+        printData();
     }
     
     public Information (String informationName, String data) {
-        this.informationName = informationName;
-        this.data = data;
+        this(informationName,data,Color.WHITE);
     }
     
-    private void printHigh() {
-        setImage(new GreenfootImage("Human "+ informationName +" : "+ data, 24, Color.WHITE, new Color(0,0,0,0)));
-    }    
+    public Information (String informationName, String data, Color color) {
+        this.informationName = informationName;
+        this.data = data;
+        this.color =color;
+    }
+    
+    private void printData() {
+        setImage(new GreenfootImage("Human "+ informationName +" : "+ data, 24, color, new Color(0,0,0,130)));
+    }
+    
+    public void updateData(String data) {
+        this.data = data;
+        printData();
+    }
 }
