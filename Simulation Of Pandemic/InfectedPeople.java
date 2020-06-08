@@ -20,7 +20,7 @@ public class InfectedPeople extends Information
             updateData(((SimulationWorld)getWorld()).getInfected()+"");
         }
         else {
-            Greenfoot.setWorld(new EndScreen());
+            Greenfoot.setWorld(new EndScreen(((SimulationWorld)getWorld()).getTotalTnfected()));
             getWorld().removeObject(this);
         }
     }

@@ -67,6 +67,7 @@ public class Human extends Actor
                     h.setRecoverPeriod(50);
                     h.setInfectionPeriod(0);
                 }
+                ((SimulationWorld)getWorld()).upadteTotalTnfected();
                 h.changeStage(0);
             }
         }

@@ -14,9 +14,10 @@ public class SimulationWorld extends World
     private int healthy = 0;
     private int infected = 1;
     private int recover = 0;
+    private int totalTnfected = 0;
     
     public SimulationWorld() {
-        this(1280,720, 50,0.75,1,500);
+        this(1280,720, 50,0.75,2,500);
     }
     
     public SimulationWorld(int width, int height, int recoverPeriod, double immune, int speed,int people)
@@ -72,6 +73,14 @@ public class SimulationWorld extends World
     
     public int getRecover () {
         return recover;
+    }
+    
+    public int getTotalTnfected () {
+        return totalTnfected;
+    }
+    
+    public void upadteTotalTnfected () {
+        totalTnfected++;
     }
     
     public String getMovement () {

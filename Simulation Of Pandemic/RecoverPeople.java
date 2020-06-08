@@ -11,6 +11,7 @@ public class RecoverPeople extends Information
 {
     public RecoverPeople () {
         super("Recover People", "", new Color(102,255,178));
+        
     }
     
     public void act() 
