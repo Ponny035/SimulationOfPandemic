@@ -29,7 +29,7 @@ public class Start extends Button
     }*/
     
     public Start() {
-        super("images/Button_Start.png",150,150);
+        super("images/Button/Button_Start.png");
     
     }
 }
