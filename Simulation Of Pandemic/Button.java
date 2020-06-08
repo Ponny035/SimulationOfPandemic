@@ -12,6 +12,11 @@ public class Button extends Actor
     public boolean isActive = false;
     private boolean toggle = false;
     
+    public Button(String img) {
+        image = new GreenfootImage(img);
+        setImage( image );
+    }
+    
     public Button(String img ,int width, int height) {
         image = new GreenfootImage(img);
         image.scale(width, height);
