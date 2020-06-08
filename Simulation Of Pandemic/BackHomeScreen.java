@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Back_Homescreen extends Button {
+public class BackHomeScreen extends Button {
     /**
      * Act - do whatever the Start wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -14,6 +14,7 @@ public class Back_Homescreen extends Button {
     public void act() 
     {
         super.checkClick();
+        super.checkKeys("backspace");
         active(isActive);
     } 
     
@@ -26,7 +27,7 @@ public class Back_Homescreen extends Button {
         }
     }
     
-    public Back_Homescreen() {
+    public BackHomeScreen() {
         super("images/button_back.png");
     
     }

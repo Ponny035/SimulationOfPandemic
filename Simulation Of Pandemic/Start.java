@@ -16,17 +16,18 @@ public class Start extends Button
     {
         super.checkClick();
         super.checkKeys("enter");
-        //active(isActive);
+        active(isActive);
     } 
     
-    /*public active (boolean active) {
+    public void active (boolean active) {
         if(active) {
             //Greenfoot.playSound("");
-            ((Home)getWorld()).soundTrack.stop();
-            Greenfoot.setWorld(new GameSetting());
+            //((Home)getWorld()).soundTrack.stop();
+            Greenfoot.setWorld(new SimulationWorld());
+            //Greenfoot.setWorld(new SelectEnvironment());
             getWorld().removeObject(this);
         }
-    }*/
+    }
     
     public Start() {
         super("images/Button/Button_Start.png");

@@ -16,15 +16,16 @@ public class Story extends Button
     public void act() 
     {
         super.checkClick();
-        super.checkKeys("enter");
-        //active(isActive);
+        active(isActive);
     }    
     
-    /*private void active(boolean active) {
+    private void active(boolean active) {
         if(active) {
-            Greenfoot.playSound("");
-            Greenfoot.setWorld(new ....());
+            World world = getWorld();
+            //Greenfoot.playSound("Selection_Sound_7.wav");
+            //world.soundTrack.stop();
+            Greenfoot.setWorld(new COVIDStory());
             getWorld().removeObject(this);
         }
-    }*/
+    }
 }
