@@ -10,14 +10,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class HealthyPeople extends Information
 {
     public HealthyPeople () {
-        super("Healthy People", ""+SimulationWorld.getHealthy());
+        super("Healthy People", "");
     }
     
     public void act() 
     {
         if(((SimulationWorld)getWorld()).getHealthy()!=0){
             checkHealthy();
-            updateData(SimulationWorld.getHealthy()+"");
+            updateData(((SimulationWorld)getWorld()).getHealthy()+"");
         }
     }
     
