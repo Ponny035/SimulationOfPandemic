@@ -19,7 +19,6 @@ public class Replay extends Button
     public void act() 
     {
         super.checkClick();
-        super.checkKeys("enter");
         active(isActive);
     }    
     
@@ -29,6 +28,7 @@ public class Replay extends Button
             //Greenfoot.playSound("Selection_Sound_7.wav");
             //world.soundTrack.stop();
             Greenfoot.setWorld(new HomeScreen());
+            //Greenfoot.setWorld(new SelectEnvironment());
             getWorld().removeObject(this);
         }
     }
