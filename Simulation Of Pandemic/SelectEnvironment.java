@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class SelectEnvironment extends World
 {
     int recoverPeriod = 50; 
-    double immune = 0.75;
+    double immune = 0.7;
     int speed = 2;
     int people = 500;
     /**
@@ -24,10 +24,12 @@ public class SelectEnvironment extends World
         addObject(new HowTo(), 1200, 70);
         addObject(new DoSocialDistancing(),444,497);
         addObject(new DoNotSocialDistancing(),867,497);
-        addObject(new PoppolationUp(),582,240);
-        addObject(new PoppolationDown(),580,265);
+        addObject(new PopolationUp(),582,240);
+        addObject(new PopolationDown(),580,265);
         addObject(new ImmuneUp(),1100,240);
         addObject(new ImmuneDown(),1100,265);
+        addObject(new Popolation(),380,256);
+        addObject(new Immune(),900,256);
         Greenfoot.start();
     }
     

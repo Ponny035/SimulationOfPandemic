@@ -18,17 +18,20 @@ public class ImmuneUp extends Button
         active(isActive);
     } 
     
-    public void active (boolean active) {
+    private void active(boolean active) {
         if(active) {
-            //Greenfoot.playSound("");
-            //((Home)getWorld()).soundTrack.stop();
-            //Greenfoot.setWorld(new HomeScreen());
-            getWorld().removeObject(this);
-        }
+            //Greenfoot.playSound("Selection_Sound_1.wav");
+            double immune = ((SelectEnvironment)getWorld()).getImmune();
+            if(immune<0.9) {
+                immune= immune+0.1;
+            }
+            ((SelectEnvironment)getWorld()).setImmune(immune);
+            isActive = false;
+        } 
     }
     
     public ImmuneUp() {
-        super("images/botton_up.png");
+        super("images/Button/botton_up.png");
     
     }   
 }

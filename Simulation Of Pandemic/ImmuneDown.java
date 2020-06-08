@@ -20,15 +20,18 @@ public class ImmuneDown extends Button
     
     public void active (boolean active) {
         if(active) {
-            //Greenfoot.playSound("");
-            //((Home)getWorld()).soundTrack.stop();
-            //Greenfoot.setWorld(new HomeScreen());
-            getWorld().removeObject(this);
+            //Greenfoot.playSound("Selection_Sound_1.wav");
+            double immune = ((SelectEnvironment)getWorld()).getImmune();
+            if(immune>0.4) {
+                immune= immune-0.1;
+            }
+            ((SelectEnvironment)getWorld()).setImmune(immune);
+            isActive = false;
         }
     }
     
     public ImmuneDown() {
-        super("images/botton_down.png");
+        super("images/Button/botton_down.png");
     
     }    
 }

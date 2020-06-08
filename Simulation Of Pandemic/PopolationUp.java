@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class PoppolationUp extends Button
+public class PopolationUp extends Button
 {
     /**
      * Act - do whatever the up1 wants to do. This method is called whenever
@@ -18,17 +18,20 @@ public class PoppolationUp extends Button
         active(isActive);
     } 
     
-    public void active (boolean active) {
+    private void active(boolean active) {
         if(active) {
-            //Greenfoot.playSound("");
-            //((Home)getWorld()).soundTrack.stop();
-            //Greenfoot.setWorld(new HomeScreen());
-            getWorld().removeObject(this);
-        }
+            //Greenfoot.playSound("Selection_Sound_1.wav");
+            int people = ((SelectEnvironment)getWorld()).getPeople();
+            if(people<500) {
+                people= people+100;
+            }
+            ((SelectEnvironment)getWorld()).setPeople(people);
+            isActive = false;
+        } 
     }
     
-    public PoppolationUp() {
-        super("images/botton_up.png");
+    public PopolationUp() {
+        super("images/Button/botton_up.png");
     
     }  
 }

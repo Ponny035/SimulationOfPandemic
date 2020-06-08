@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class DoSocialDistancing extends SocialDistancing
 {
     public DoSocialDistancing() {
-        super("images/Button/dosocial_on_click.png","images/Button/dosocial.png");
+        super("images/Button/dosocial_on_click.jpg","images/Button/dosocial.png");
     }
     /**
      * Act - do whatever the MiniMap1 wants to do. This method is called whenever

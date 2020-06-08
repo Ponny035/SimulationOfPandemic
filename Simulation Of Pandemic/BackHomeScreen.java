@@ -28,7 +28,7 @@ public class BackHomeScreen extends Button {
     }
     
     public BackHomeScreen() {
-        super("images/button_back.png");
+        super("images/Button/button_back.png");
     
     }
 }

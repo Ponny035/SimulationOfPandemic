@@ -28,7 +28,7 @@ public class StartSimulation extends Button
     }
     
     public StartSimulation() {
-        super("images/button_startsimulation.png");
+        super("images/Button/button_startsimulation.png");
     
     }
 }

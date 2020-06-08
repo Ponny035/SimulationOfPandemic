@@ -29,7 +29,7 @@ public class HowTo extends Button
     }
     
     public HowTo() {
-        super("images/button_notice.png");
+        super("images/Button/button_notice.png");
     
     }  
 }
