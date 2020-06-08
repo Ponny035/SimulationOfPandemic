@@ -19,7 +19,6 @@ public class Home extends Button
     public void act() 
     {
         super.checkClick();
-        super.checkKeys("enter");
         active(isActive);
     }    
     
