@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Start_Simulation extends Button
+public class StartSimulation extends Button
 {
     /**
      * Act - do whatever the Start_Simulation wants to do. This method is called whenever
@@ -27,7 +27,7 @@ public class Start_Simulation extends Button
         }
     }
     
-    public Start_Simulation() {
+    public StartSimulation() {
         super("images/button_startsimulation.png");
     
     }

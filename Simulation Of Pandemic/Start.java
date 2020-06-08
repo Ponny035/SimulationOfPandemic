@@ -23,8 +23,7 @@ public class Start extends Button
         if(active) {
             //Greenfoot.playSound("");
             //((Home)getWorld()).soundTrack.stop();
-            Greenfoot.setWorld(new SimulationWorld());
-            //Greenfoot.setWorld(new SelectEnvironment());
+            Greenfoot.setWorld(new SelectEnvironment());
             getWorld().removeObject(this);
         }
     }
