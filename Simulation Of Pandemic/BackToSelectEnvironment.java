@@ -1,20 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Notice here.
+ * Write a description of class Back_Homescreen here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class HowTo extends Button
-{
+public class BackToSelectEnvironment extends Button {
     /**
-     * Act - do whatever the Notice wants to do. This method is called whenever
+     * Act - do whatever the Start wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
         super.checkClick();
+        super.checkKeys("backspace");
         active(isActive);
     } 
     
@@ -22,14 +22,13 @@ public class HowTo extends Button
         if(active) {
             //Greenfoot.playSound("");
             //((Home)getWorld()).soundTrack.stop();
-            //Greenfoot.setWorld(new HomeScreen());
-            Greenfoot.setWorld(new HowToPlay());
+            Greenfoot.setWorld(new SelectEnvironment());
             getWorld().removeObject(this);
         }
     }
     
-    public HowTo() {
-        super("images/button_notice.png");
+    public BackToSelectEnvironment() {
+        super("images/button_back.png");
     
-    }  
+    }
 }
