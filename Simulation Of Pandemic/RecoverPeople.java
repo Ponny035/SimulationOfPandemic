@@ -10,13 +10,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class RecoverPeople extends Information
 {
     public RecoverPeople () {
-        super("Recover People", ""+SimulationWorld.getRecover(), new Color(102,255,178));
+        super("Recover People", "", new Color(102,255,178));
     }
     
     public void act() 
     {
         checkRecover();
-        updateData(SimulationWorld.getRecover()+"");
+        updateData(((SimulationWorld)getWorld()).getRecover()+"");
     }
     
     private void checkRecover() {

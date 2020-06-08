@@ -8,15 +8,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class SimulationWorld extends World
 {    
-    public static int recoverPeriod = 0;
-    public static double immune = 0;
-    public static int speed = 0;
-    private static int healthy = 0;
-    private static int infected = 1;
-    private static int recover = 0;
+    private int recoverPeriod = 0;
+    private double immune = 0;
+    private int speed = 0;
+    private int healthy = 0;
+    private int infected = 1;
+    private int recover = 0;
     
     public SimulationWorld() {
-        this(1280,720, 50,0.75,3,500);
+        this(1280,720, 50,0.75,1,500);
     }
     
     public SimulationWorld(int width, int height, int recoverPeriod, double immune, int speed,int people)
@@ -38,7 +38,7 @@ public class SimulationWorld extends World
         addObject( new InfectedPeople(), 1110, 75);
         addObject( new RecoverPeople(), 1110, 100);
         addObject( new ImmunityInformation(), 1110, 650);
-        addObject( new MovemntInformation(), 1050, 675);
+        addObject( new MovemntInformation(this.getMovement()), 1050, 675);
         Greenfoot.start();
     }
     
@@ -54,7 +54,7 @@ public class SimulationWorld extends World
         this.healthy = healthy;
     }
     
-    public static int getHealthy () {
+    public int getHealthy () {
         return healthy;
     }
     
@@ -62,7 +62,7 @@ public class SimulationWorld extends World
         this.infected = infected;
     }
     
-    public static int getInfected () {
+    public int getInfected () {
         return infected;
     }
     
@@ -70,11 +70,11 @@ public class SimulationWorld extends World
         this.recover = recover;
     }
     
-    public static int getRecover () {
+    public int getRecover () {
         return recover;
     }
     
-    public static String getMovement () {
+    public String getMovement () {
         if(speed==2) {
             return "Do Social Distancing";
         }

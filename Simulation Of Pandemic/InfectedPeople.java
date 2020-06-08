@@ -10,18 +10,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class InfectedPeople extends Information
 {
     public InfectedPeople () {
-        super("Infected People", ""+SimulationWorld.getInfected(),Color.RED);
+        super("Infected People", "",Color.RED);
     }
     
     public void act() 
     {
         if(((SimulationWorld)getWorld()).getInfected()!=0){
-            checkHealthy();
-            updateData(SimulationWorld.getInfected()+"");
+            checkInfected();
+            updateData(((SimulationWorld)getWorld()).getInfected()+"");
+        }
+        else {
+            Greenfoot.setWorld(new EndScreen());
+            getWorld().removeObject(this);
         }
     }
     
-    private void checkHealthy() {
+    private void checkInfected() {
         List<Human>objects = getObjectsInRange(1500, Human.class);
         int count = 0;
         double value = 0;
